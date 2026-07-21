@@ -1,0 +1,18 @@
+﻿version: "3.8"
+
+services:
+  douyin-parse:
+    build: .
+    container_name: douyin-parse
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - BROWSER_MAX=3
+      - PUPPETEER_HEADLESS=true
+      - LOG_LEVEL=info
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 1.5g
